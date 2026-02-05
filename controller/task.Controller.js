@@ -15,15 +15,6 @@ taskController.createTask = async (req,res) => {
     }
 }   
 
-taskController.getAllTasks = async (req,res) => {
-    try{
-        const tasks = await Task.find().select('-__v');
-        res.status(200).json({status : 'ok', data:tasks})
-    }catch(err){
-        res.status(499).json({status : 'Bad Request', error:err.message})
-    }
-}
-
 
 taskController.updateTask = async (req,res) => {
     try{
